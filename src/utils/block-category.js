@@ -13,7 +13,7 @@ setCategories( [
 	{
 		slug: 'coblocks',
 		title: 'CoBlocks',
-		icon: brandAssets.categoryIcon,
+		///icon: brandAssets.categoryIcon,
 	},
 	...getCategories().filter( ( { slug } ) => slug !== 'coblocks' ),
 ] );

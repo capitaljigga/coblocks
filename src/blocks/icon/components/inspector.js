@@ -20,7 +20,8 @@ const { __, _x, sprintf } = wp.i18n;
 const { Component, Fragment } = wp.element;
 const { compose } = wp.compose;
 const { InspectorControls, ContrastChecker, PanelColorSettings } = wp.editor;
-const { PanelBody, withFallbackStyles, RangeControl, TextControl, Button, BaseControl, NavigableMenu, Dropdown, ButtonGroup, Dashicon, Tooltip, ToggleControl } = wp.components;
+const { PanelBody, withFallbackStyles, RangeControl, TextControl, SelectControl, Button, BaseControl, NavigableMenu, Dropdown, ButtonGroup, Dashicon, Tooltip, ToggleControl } = wp.components;
+
 
 /**
  * Module constants
@@ -115,6 +116,7 @@ class Inspector extends Component {
 			borderRadius,
 			padding,
 			iconSize,
+			imageSize,
 			width,
 			height,
 			href,
@@ -175,6 +177,13 @@ class Inspector extends Component {
 				slug: 'huge',
 			},
 		];
+
+		const imageOptions = [
+			{ label: 'Big', value: '100%' },
+			{ label: 'Medium', value: '50%' },
+			{ label: 'Small', value: '25%' },
+		];
+
 
 		const currentSize = utilitySizes.find( ( utility ) => utility.slug === iconSize );
 
@@ -246,14 +255,7 @@ class Inspector extends Component {
 											</NavigableMenu>
 										) }
 									/>
-									<Button
-										className="components-color-palette__clear"
-										type="button"
-										onClick={ () => this.onChangeSize( 'advanced', '' ) }
-										isDefault
-										aria-label={ sprintf( __( 'Advanced %s settings' ), label.toLowerCase() ) }
-										isPrimary={ iconSize === 'advanced' }
-									>
+									<Button className="components-color-palette__clear" type="button" onClick={ () => this.onChangeSize( 'advanced', '' ) } isDefault aria-label={ sprintf( __( 'Advanced %s settings' ), label.toLowerCase() ) } isPrimary={ iconSize === 'advanced' } >
 										{ __( 'Advanced' ) }
 									</Button>
 								</div>
@@ -288,6 +290,15 @@ class Inspector extends Component {
 								}
 							}
 						/>
+
+						<SelectControl
+							label={ 'Image Size (sample)' }
+							value={ imageSize }
+							options={ imageOptions }
+							help={ __( 'The size of an image. Not real.' ) }
+							onChange={ ( value ) => setAttributes( { gutter: value } ) }
+						/>
+
 						<div className="coblocks-icon-types-list-wrapper">
 							<ul role="list" className="editor-block-types-list coblocks-icon-types-list">
 								{ ! this.state.isSearching ?

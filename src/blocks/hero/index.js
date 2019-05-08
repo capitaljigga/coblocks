@@ -28,7 +28,7 @@ const { RichText, getColorClassName, getFontSizeClass, InnerBlocks } = wp.editor
  */
 const name = 'hero';
 
-const title = __( 'Hero' );
+const title = __( 'Hero Block' );
 
 const icon = icons.hero;
 
@@ -154,9 +154,9 @@ const settings = {
 			const backgroundClass = getColorClassName( 'background-color', backgroundColor );
 
 			let classlist = {
-				'has-text-color': textColor || customTextColor,
-				[ textClass ]: textClass,
-				[ `coblocks-hero-${ coblocks.id }` ] : coblocks && ( typeof coblocks.id != 'undefined' ),
+				//'has-text-color': textColor || customTextColor,
+				//[ textClass ]: textClass,
+				// [ `coblocks-hero-id-${ coblocks.id }` ] : coblocks && ( typeof coblocks.id != 'undefined' ),
 			};
 
 			const classes = classnames( classlist );
@@ -175,7 +175,8 @@ const settings = {
 					[ backgroundClass ]: backgroundClass,
 					[ `has-${ contentAlign }-content` ]: contentAlign,
 					'is-fullscreen': fullscreen,
-			} );
+				}
+			);
 
 			const innerStyles = {
 				backgroundColor: backgroundClass ? undefined : customBackgroundColor,

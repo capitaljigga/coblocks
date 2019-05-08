@@ -56,18 +56,13 @@ const blockAttributes = {
 const settings = {
 
 	title: title,
-
 	description: __( 'Add up to three columns of small notes for your product or service.' ),
-
 	keywords: keywords,
-
 	attributes: blockAttributes,
-
 	supports: {
 		align: [ 'wide', 'full' ],
 		coBlocksSpacing: true,
 	},
-
 	transforms: {
 		from: [
 			{

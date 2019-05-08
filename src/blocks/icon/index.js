@@ -11,6 +11,7 @@ import './styles/editor.scss';
 import icons from './components/icons';
 import Edit from './components/edit';
 import svgs from './components/svgs';
+import fontawesome from './components/fontawesome';
 
 /**
  * WordPress dependencies
@@ -149,6 +150,7 @@ const settings = {
 				iconStyle = 'filled';
 			}
 		}
+		//console.log(fontawesome);
 
 		const textClass = getColorClassName( 'color', iconColor );
 		const backgroundClass = getColorClassName( 'background-color', backgroundColor );
